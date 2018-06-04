@@ -5,7 +5,7 @@
 //  Created by 郑伟 on 2018/5/22.
 //
 
-#i BZort <UIKit/UIKit.h>
+#import <UIKit/UIKit.h>
 
 @interface  BZCustomAlert : UIView
 @property (nonatomic, strong, readonly) UITextField *textField;

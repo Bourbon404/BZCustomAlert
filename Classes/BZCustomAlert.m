@@ -5,9 +5,9 @@
 //  Created by 郑伟 on 2018/5/22.
 //
 
-#i BZort " BZCustomAlert.h"
-#i BZort "UIColor+Category.h"
-#i BZort " BZCustomAlertButton.h"
+#import "BZCustomAlert.h"
+#import "UIColor+Category.h"
+#import "BZCustomAlertButton.h"
 @interface  BZCustomAlert ()
 @property (nonatomic, strong, readwrite) UITextField *textField;
 @property (nonatomic, strong) UIView *tml;
@@ -17,7 +17,7 @@
 @property (nonatomic, strong) UIWindow *alertWindow;
 @property (nonatomic, assign) CGRect keyboardFrame;
 @end
-@i BZlementation  BZCustomAlert
+@implementation  BZCustomAlert
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -27,7 +27,7 @@
         self.buttonArray = [NSMutableArray array];
         self.layer.shadowColor = [UIColor blackColor].CGColor;
         self.layer.shadowOpacity = 0.2;
-        self.layer.cornerRadius = 13;
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameWillChange:) name:UIKeyboardWillShowNotification object:nil];
     } return self;
 }
@@ -77,6 +77,7 @@
     
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.bounds];
     self.layer.shadowPath = path.CGPath;
+    self.layer.cornerRadius = 13;
 }
 #pragma mark Property
 - (void)setTitle:(NSString *)title {
@@ -182,7 +183,7 @@
     [self configFrame];
     [self.alertWindow makeKeyAndVisible];
     [self.alertWindow addSubview:self];
-    self.hidden = YES;
+    self.alpha = 0;
     [self.textField becomeFirstResponder];
     CGPoint alertCenter = self.center;
     if (CGRectGetMinY(self.keyboardFrame) - CGRectGetMaxY(self.frame) < 50) {
@@ -190,7 +191,7 @@
     }
     
     [UIView animateWithDuration:0.3 animations:^{
-        self.hidden = NO;
+        self.alpha = 1;
         self.center = alertCenter;
     }];
 }

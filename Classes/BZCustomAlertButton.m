@@ -5,7 +5,7 @@
 //  Created by 郑伟 on 2018/5/22.
 //
 
-#import " BZCustomAlertButton.h"
+#import "BZCustomAlertButton.h"
 #import "UIColor+Category.h"
 @implementation  BZCustomAlertButton
 
