@@ -8,3 +8,5 @@
 UI样式仿照原生
 
 欢迎提交issues
+
+`pod`支持 `pod 'BZCustomAlert' 1.0`
