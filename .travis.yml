@@ -1,3 +1,6 @@
 language: objective-c
 xcode_project: ./BZCustomAlert/BZCustomAlert.xcodeproj # path to your xcodeproj folder
 xcode_scheme: BZCustomAlert
+script:
+    - xcodebuild clean build -sdk iphonesimulator -workspace Project.xcworkspace -scheme ProjectTests CODE_SIGNING_REQUIRED=NO
+
